@@ -1,14 +1,16 @@
 import { Box, chakra, Container, Heading, Icon, useColorModeValue } from "@chakra-ui/react"
-import Image from "next/image"
-import Section from "../components/section"
-import { SiJavascript, SiRubyonrails, SiJquery, SiTypescript, SiReact, SiVuedotjs, SiHtml5, SiCss3, SiGraphql } from 'react-icons/si'
 import styled from "@emotion/styled"
+import Image from "next/image"
+import { memo } from "react"
+import { SiCss3, SiGraphql, SiHtml5, SiJavascript, SiJquery, SiReact, SiRubyonrails, SiTypescript, SiVuedotjs, SiNextdotjs } from 'react-icons/si'
+import Section from "../components/section"
+import { Text } from "@chakra-ui/react"
 
 const ProfileImage = chakra(Image, {
   shouldForwardProp: prop => ['width', 'height', 'src', 'alt'].includes(prop)
 })
 
-const TechIcons = [SiTypescript, SiJavascript, SiReact, SiRubyonrails, SiJquery, SiVuedotjs, SiHtml5, SiCss3, SiGraphql]
+const TechIcons = [SiTypescript, SiJavascript, SiNextdotjs, SiReact, SiRubyonrails, SiJquery, SiVuedotjs, SiHtml5, SiCss3, SiGraphql]
 
 const IconBox = styled(Box)`
     margin-top: 5px;
@@ -26,18 +28,36 @@ const Page = () => {
   return (
     <Container mt={7}>
       <Section delay={0.1}>
-        <Box borderRadius="lg" bg={useColorModeValue('whiteAlpha.500', 'whiteAlpha.200')} p={3} align="center">
-          Hello, I&apos;m a fullstack developer based in Brazil!
+        <Box borderRadius="lg" bg={useColorModeValue('whiteAlpha.500', 'whiteAlpha.200')} p={3} align="center" fontSize={26}>
+          Hey Folks, I&apos;m a Software Developer! 🍻
         </Box>
       </Section>
 
-      <Section delay={0.2}>
-        <Box id="about" display={{ md: 'flex' }} mt={5} justifyContent="space-between" alignItems="center">
+      <Section delay={0.2} id="about-me">
+        <Box id="about" display={{ md: 'flex' }} mt={10} justifyContent="space-between" alignItems="flex-start">
           <Box flexGrow={1}>
-            <Heading display="flex" alignItems="center" as="h3" fontSize={26}>
-              Tauan Camargo <Heading as="span" color={useColorModeValue('grey', 'whiteAlpha')} ml={2} fontSize={12} style={{ transform: 'translateY(3px)' }}> - (Software Developer)</Heading></Heading>
-            <Box as="p" mt={2} fontSize={{ md: 13 }}>
-            Hi i&apos;m Tauan Camargo, experienced developer with more than 5 years of career. Focused in Javascript stack, but already i worked with Ruby, C# and other languages. As a front-end worked with technologies like ReactJs (Typescript), VueJs, Angular2+, NextJs, Ruby on Rails. Enthusiast in mobile world working with React Native, Flutter and PWA&apos;s.</Box>
+            <Heading display="flex" alignItems="center" as="h3" fontSize={20}>
+              <Text fontSize={{ md: '3xl', sm: '4xl' }} color={useColorModeValue('blackAlpha', 'orange')}>Tauan Camargo</Text>
+                <Heading as="span" color={useColorModeValue('grey', 'whiteAlpha')} ml={1} fontSize={12} style={{ transform: 'translateY(3px)' }}>
+                - (Software Developer)
+                </Heading>
+            </Heading> 
+            
+            <Box as="p" mt={2} fontSize={{ md: 17 }}>
+              Hi there! I&apos;m Tauan Camargo. I&apos;m a software developer from Brazil. I&apos;m passionate about web development and I&apos;m always looking for new challenges.
+              <br />
+              <br />
+              My clients are US-based small to mid-sized companies who&apos;re looking for an expert that can take a set of propositions and tasks and deliver a well-architected piece of software on the web without a lot of handholding.
+              <br />
+              <br />
+              As a solution-oriented developer, I am a lifelong learner and a lover of JavaScript. I am passionate about creating new things and am motivated by the opportunity to positively impact people&apos;s lives through software development.
+              <br />
+              <br />
+              With experience in a wide range of technologies, including Javascript, Typescript, React, NextJs, VueJs, Angular2+, React Native, Nodejs, NestJs, Express, Ruby on Rails, Git, Github, Jira, MVC, Rest, GraphQL and Redux, I am constantly expanding my skills and knowledge.
+              <br />
+              <br />
+              I&apos;m a self-taught developer and I&apos;m always looking for new challenges. I&apos;m currently working at <a href="https://www.moz.com/" target="_blank" rel="noreferrer">Moz</a> as a Full Stack Developer.
+            </Box>
           </Box>
           <Box
             flexShrink={0}
@@ -49,8 +69,8 @@ const Page = () => {
               borderColor={useColorModeValue('blackAlpha', 'whiteAlpha.800')}
               borderWidth={3}
               borderStyle="solid"
-              w="150px"
-              h="150px"
+              w="180px"
+              h="180px"
               display="inline-block"
               borderRadius="full"
               overflow='hidden'
@@ -59,8 +79,8 @@ const Page = () => {
                 src="/images/tauan.jpeg"
                 alt="Profile image"
                 borderRadius='full'
-                width="150px"
-                height="150px"
+                width="180px"
+                height="180px"
               />
             </Box>
           </Box>
@@ -68,16 +88,35 @@ const Page = () => {
       </Section>
 
       <Section delay={0.3}>
-        <Heading as="h3" variant="section-title" fontSize={32}>
-          Technologies
-        </Heading>
+        <Box mt={10}>
+          <Heading as="h3" variant="section-title" fontSize={32} color={useColorModeValue('blackAlpha', 'orange')}>
+            Technologies
+          </Heading>
 
-        <Box rowGap={2} flexWrap="wrap" borderRadius="lg" bg={useColorModeValue('whiteAlpha.500', 'whiteAlpha.200')} p={3} align="center" mt={4} display="flex" alignItems="center" justifyContent="flex-start">
-          {TechIcons.map((ico, index) => <IconBox width={{ sm: '80px', md: '68px'}} key={index}><Icon as={ico} fontSize={40} /></IconBox>)}
+          <Box
+            rowGap={6}
+            columnGap={2}
+            flexWrap="wrap" 
+            borderRadius="lg"
+            bg={useColorModeValue('whiteAlpha.500', 'whiteAlpha.200')}
+            pt={6}
+            pb={6}
+            align="center"
+            mt={4}
+            display="flex"
+            alignItems="center"
+            justifyContent="flex-start"
+          >
+            {TechIcons.map((ico, index) => 
+              <IconBox width={98} key={index}>
+                <Icon as={ico} fontSize={50} />
+              </IconBox>
+            )}
+          </Box>
         </Box>
       </Section>
     </Container>
   )
 }
 
-export default Page
+export default memo(Page)

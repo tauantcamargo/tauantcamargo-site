@@ -1,19 +1,18 @@
-/* eslint-disable @next/next/link-passhref */
-import { Box, Container, Flex, Heading, Link, Stack, useColorModeValue } from "@chakra-ui/react"
-import NextLink from 'next/link'
+import { Box, Container, Flex, Heading, Link, Menu, MenuButton, MenuItem, MenuList, Stack, useColorModeValue } from "@chakra-ui/react"
 import Logo from './layouts/logo'
+import NextLink from 'next/link'
 import ThemeToggleButton from "./theme-toggle-button"
+import { HamburgerIcon } from "@chakra-ui/icons"
+import { SiGithub, SiLinkedin } from 'react-icons/si'
 
-const LinkItem = ({ href, path, children }) => {
+const LinkItem = ({ isExternal, href, path, children }) => {
   const active = path === href
   const inactiveColor = useColorModeValue('gray200', 'whiteAlpha')
 
   return (
-    <NextLink href={href}>
-      <Link p={2} bg={ active ? 'glassTeal' : undefined } color={active ? '#202023' : inactiveColor}>
-        {children}
-      </Link>
-    </NextLink>
+    <Link href={href} isExternal={isExternal} p={2} bg={ active ? 'glassTeal' : undefined } color={active ? 'orange' : inactiveColor}>
+      {children}
+    </Link>
   )
 }
 
@@ -50,49 +49,48 @@ const Navbar = props => {
           width={{ base: 'full', md: 'auto' }}
           alignItems="center"
           flexGrow={1}
+          columnGap={8}
           mt={{ base: 4, md: 0 }}
         >
-          <LinkItem href="/about" path={path}>
+          <LinkItem href="/#about-me" path={path}>
             About me
           </LinkItem>
-          <LinkItem href="/works" path={path}>
-            Works
+          <LinkItem href="https://www.linkedin.com/in/tauan-tathiell/" isExternal path={path}>
+            <SiLinkedin fontSize={18} />
           </LinkItem>
-          <LinkItem href="/contact" path={path}>
-            Contact
+          <LinkItem href="https://github.com/tauantcamargo" isExternal path={path}>
+            <SiGithub fontSize={18} />
           </LinkItem>
         </Stack>
 
         <Box flex={1} align="right">
           <ThemeToggleButton />
 
-          {/* <Box ml={2} display={{ base: 'inline-block', md: 'none' }}>
+          <Box ml={2} display={{ base: 'inline-block', md: 'none' }}>
             <Menu isLazy id="navbar-menu">
               <MenuButton
-                as={IconButton}
+                as={HamburgerIcon}
                 icon={<HamburgerIcon />}
+                fontSize={40}
                 variant="outline"
                 aria-label="Options"
               />
               <MenuList>
-                <NextLink href="/" passHref>
-                  <MenuItem as={Link}>About</MenuItem>
+                <NextLink href="#about-me" passHref>
+                  <MenuItem as={Link}>About me</MenuItem>
                 </NextLink>
-                <NextLink href="/works" passHref>
-                  <MenuItem as={Link}>Works</MenuItem>
-                </NextLink>
-                <NextLink href="/posts" passHref>
-                  <MenuItem as={Link}>Posts</MenuItem>
+                <NextLink href="https://www.linkedin.com/in/tauan-tathiell/" passHref>
+                  <MenuItem as={Link}>Linkedin</MenuItem>
                 </NextLink>
                 <MenuItem
                   as={Link}
-                  href="https://github.com/craftzdog/craftzdog-homepage"
+                  href="https://github.com/tauantcamargo"
                 >
-                  View Source
+                  Github
                 </MenuItem>
               </MenuList>
             </Menu>
-          </Box> */}
+          </Box>
         </Box>
       </Container>
     </Box>
