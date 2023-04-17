@@ -1,9 +1,9 @@
-import { Box, Container, Flex, Heading, Link, Menu, MenuButton, MenuItem, MenuList, Stack, useColorModeValue } from "@chakra-ui/react"
-import Logo from './layouts/logo'
-import NextLink from 'next/link'
-import ThemeToggleButton from "./theme-toggle-button"
 import { HamburgerIcon } from "@chakra-ui/icons"
-import { SiGithub, SiLinkedin } from 'react-icons/si'
+import { Box, Container, Flex, Heading, Link, Menu, MenuButton, MenuItem, MenuList, Stack, useColorModeValue } from "@chakra-ui/react"
+import NextLink from 'next/link'
+import { SiFiles, SiGithub, SiInstagram, SiLinkedin } from 'react-icons/si'
+import Logo from './layouts/logo'
+import ThemeToggleButton from "./theme-toggle-button"
 
 const LinkItem = ({ isExternal, href, path, children }) => {
   const active = path === href
@@ -49,17 +49,20 @@ const Navbar = props => {
           width={{ base: 'full', md: 'auto' }}
           alignItems="center"
           flexGrow={1}
-          columnGap={8}
+          columnGap={3}
           mt={{ base: 4, md: 0 }}
         >
-          <LinkItem href="/#about-me" path={path}>
-            About me
-          </LinkItem>
           <LinkItem href="https://www.linkedin.com/in/tauan-tathiell/" isExternal path={path}>
             <SiLinkedin fontSize={18} />
           </LinkItem>
           <LinkItem href="https://github.com/tauantcamargo" isExternal path={path}>
             <SiGithub fontSize={18} />
+          </LinkItem>
+          <LinkItem href="https://www.instagram.com/tauantathiell.dev" isExternal path={path}>
+            <SiInstagram fontSize={18} />
+          </LinkItem>
+          <LinkItem href="https://dev.to/tauantcamargo" isExternal path={path}>
+            <SiFiles fontSize={18} />
           </LinkItem>
         </Stack>
 
@@ -76,17 +79,26 @@ const Navbar = props => {
                 aria-label="Options"
               />
               <MenuList>
-                <NextLink href="#about-me" passHref>
-                  <MenuItem as={Link}>About me</MenuItem>
-                </NextLink>
-                <NextLink href="https://www.linkedin.com/in/tauan-tathiell/" passHref>
-                  <MenuItem as={Link}>Linkedin</MenuItem>
-                </NextLink>
                 <MenuItem
                   as={Link}
                   href="https://github.com/tauantcamargo"
                 >
                   Github
+                </MenuItem>
+                <NextLink href="https://www.linkedin.com/in/tauan-tathiell/" passHref>
+                  <MenuItem as={Link}>Linkedin</MenuItem>
+                </NextLink>
+                <MenuItem
+                  as={Link}
+                  href="https://www.instagram.com/tauantathiell.dev"
+                >
+                  Instagram
+                </MenuItem>
+                <MenuItem
+                  as={Link}
+                  href="https://dev.to/tauantcamargo"
+                >
+                  Dev.to
                 </MenuItem>
               </MenuList>
             </Menu>

@@ -1,16 +1,47 @@
-import { Box, chakra, Container, Heading, Icon, useColorModeValue } from "@chakra-ui/react"
+import { Box, chakra, Container, Heading, Icon, Text, useColorModeValue } from "@chakra-ui/react"
 import styled from "@emotion/styled"
 import Image from "next/image"
 import { memo } from "react"
-import { SiCss3, SiGraphql, SiHtml5, SiJavascript, SiJquery, SiReact, SiRubyonrails, SiTypescript, SiVuedotjs, SiNextdotjs } from 'react-icons/si'
+import {
+  SiCounterstrike,
+  SiCss3,
+  SiFlutter,
+  SiGraphql,
+  SiHtml5,
+  SiJavascript,
+  SiJquery,
+  SiNextdotjs,
+  SiReact,
+  SiRubyonrails,
+  SiSwift,
+  SiTypescript,
+  SiVuedotjs,
+} from 'react-icons/si'
 import Section from "../components/section"
-import { Text } from "@chakra-ui/react"
 
 const ProfileImage = chakra(Image, {
   shouldForwardProp: prop => ['width', 'height', 'src', 'alt'].includes(prop)
 })
 
-const TechIcons = [SiTypescript, SiJavascript, SiNextdotjs, SiReact, SiRubyonrails, SiJquery, SiVuedotjs, SiHtml5, SiCss3, SiGraphql]
+const TechIcons = [
+  SiTypescript, 
+  SiNextdotjs,
+  SiReact, 
+  SiSwift,
+  SiJavascript, 
+  SiFlutter,
+  SiCss3, 
+  SiGraphql, 
+  SiHtml5, 
+  SiJquery, 
+  SiRubyonrails, 
+  SiVuedotjs,
+  SiCounterstrike
+]
+
+const CustomContainer = styled(Container)`
+  max-width: 800px;
+`
 
 const IconBox = styled(Box)`
     margin-top: 5px;
@@ -26,7 +57,7 @@ const IconBox = styled(Box)`
 
 const Page = () => {
   return (
-    <Container mt={7}>
+    <CustomContainer mt={7}>
       <Section delay={0.1}>
         <Box borderRadius="lg" bg={useColorModeValue('whiteAlpha.500', 'whiteAlpha.200')} p={3} align="center" fontSize={26}>
           Hey Folks, I&apos;m a Software Developer! 🍻
@@ -53,7 +84,7 @@ const Page = () => {
               As a solution-oriented developer, I am a lifelong learner and a lover of JavaScript. I am passionate about creating new things and am motivated by the opportunity to positively impact people&apos;s lives through software development.
               <br />
               <br />
-              With experience in a wide range of technologies, including Javascript, Typescript, React, NextJs, VueJs, Angular2+, React Native, Nodejs, NestJs, Express, Ruby on Rails, Git, Github, Jira, MVC, Rest, GraphQL and Redux, I am constantly expanding my skills and knowledge.
+              With experience in a wide range of technologies, including Javascript, Typescript, React, NextJs, Swift, UIKit, SwiftUi, VueJs, Angular2+, React Native, Nodejs, NestJs, Express, Ruby on Rails, Git, Github, Jira, MVC, Rest, GraphQL and Redux, I am constantly expanding my skills and knowledge.
               <br />
               <br />
               I&apos;m a self-taught developer and I&apos;m always looking for new challenges. I&apos;m currently working at <a href="https://www.moz.com/" target="_blank" rel="noreferrer">Moz</a> as a Full Stack Developer.
@@ -69,18 +100,18 @@ const Page = () => {
               borderColor={useColorModeValue('blackAlpha', 'whiteAlpha.800')}
               borderWidth={3}
               borderStyle="solid"
-              w="180px"
-              h="180px"
+              w="300px"
+              h="300px"
               display="inline-block"
               borderRadius="full"
               overflow='hidden'
             >
               <ProfileImage
-                src="/images/tauan.jpeg"
+                src="/images/tauan2.jpeg"
                 alt="Profile image"
                 borderRadius='full'
-                width="180px"
-                height="180px"
+                width="300px"
+                height="300px"
               />
             </Box>
           </Box>
@@ -115,7 +146,7 @@ const Page = () => {
           </Box>
         </Box>
       </Section>
-    </Container>
+    </CustomContainer>
   )
 }
 
